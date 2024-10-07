@@ -13,7 +13,7 @@ def get_img_base64(file):
 
 @st.cache_data
 def load_data():
-    dta= pd.read_csv("C:/Users/A/Desktop/dashing/fifa/fifa_eda.csv")
+    dta= pd.read_csv("fifa_eda.csv")
     dta.dropna(inplace=True)
     dta['Year']=pd.to_datetime(dta['Contract Valid Until']).dt.strftime('%Y')
     dta['duration']=dta['Year'].astype('int')-dta['Joined']
@@ -29,13 +29,13 @@ def load_data():
 df,c_val=load_data()
 clubs=df['Club'].unique()
 sidebar_imgs={
-    "FC Barcelona":"C:/Users/A/Desktop/dashing/fifa/clubs_img/barca.png",
-    "Juventus":"C:/Users/A/Desktop/dashing/fifa/clubs_img/juven.png",
-    "Paris Saint-Germain":"C:/Users/A/Desktop/dashing/fifa/clubs_img/parisst.png",
-    "Manchester United":"C:/Users/A/Desktop/dashing/fifa/clubs_img/manchunit.png",
-    "Manchester City":"C:/Users/A/Desktop/dashing/fifa/clubs_img/manchester.png"
+    "FC Barcelona":"clubs_img/barca.png",
+    "Juventus":"clubs_img/juven.png",
+    "Paris Saint-Germain":"clubs_img/parisst.png",
+    "Manchester United":"clubs_img/manchunit.png",
+    "Manchester City":"clubs_img/manchester.png"
 }
-defalt_sidebar="C:/Users/A/Desktop/dashing/fifa/clubs_img/fifa.png"
+defalt_sidebar="clubs_img/fifa.png"
 img=get_img_base64("background.png")
 background_image=f"""
 <style>
