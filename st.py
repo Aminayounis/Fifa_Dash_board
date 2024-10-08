@@ -62,7 +62,10 @@ st.write('**check if you can take a part in your prefered club in three steps:**
 #sidebar
 st.sidebar.header("Club Analysis")
 selected_club=st.sidebar.selectbox("Select your prefered club:",clubs,index=None,placeholder="Select your prefered club...")
-st.sidebar.image(defalt_sidebar if (selected_club not in sidebar_imgs) else sidebar_imgs[selected_club])
+if selected_club is not None:
+    st.sidebar.image(defalt_sidebar if (selected_club not in sidebar_imgs) else sidebar_imgs[selected_club])
+else:
+    st.warning('Please select an option.')
 
 #tabs
 tab1,tab2,tab3=st.tabs([f'about \"{selected_club if selected_club != None else ""}\"->','compare it with other clubs->',f'check if  you can be a soccer in \"{selected_club if selected_club != None else ""}\"'])
